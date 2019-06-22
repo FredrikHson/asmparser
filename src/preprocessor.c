@@ -57,7 +57,6 @@ int main(int argc, char* argv[])
         char filepath[PATH_MAX] = {0};
         sprintf(filepath, "%s", argv[optind]);
         textlist_append(&includes, dirname(filepath));
-        printf("input %s", inputfile);
         yyin = fopen(inputfile, "r");
         yyparse();
     }
@@ -120,7 +119,7 @@ void preprocess(char* filename, _Bool sys)
         sys = 0;
     }
 
-    printf("#line %i %s\n", 0, filename);
+    printf("#line %i \"%s\"\n", 0, filename);
 
     if(sys)
     {
@@ -180,5 +179,5 @@ void preprocess(char* filename, _Bool sys)
         }
     }
 
-    printf("#line %i %s\n", yylineno, inputfile);
+    printf("#line %i \"%s\"\n", yylineno, inputfile);
 }
