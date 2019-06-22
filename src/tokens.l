@@ -15,7 +15,7 @@ jumploc     ^([a-zA-Z])+
 
 %%
 
-{comment}      { printf("%s\n" ,yytext);}
+{comment}      { /*printf("%s\n" ,yytext);*/}
 "ADC"          { printf("ADC - add with carry\n");}
 "AND"          { printf("AND - and (with accumulator)\n");}
 "ASL"          { printf("ASL - arithmetic shift left\n");}
